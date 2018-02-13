@@ -1,0 +1,12 @@
+{{!-- app/templates/users/new.hbs --}}
+<h1>New User</h1>
+
+{{#bs-form formLayout="horizontal" model=model onSubmit=(action 'saveUser' model) as |form|}}
+  {{form.element controlType="email" label="Email" placeholder="Email" property="username" required=true}}
+  {{form.element controlType="text" label="First Name" placeholder="first" property="firstName" required=true}}
+  {{form.element controlType="text" label="Last Name" placeholder="last" property="lastName" required=true}}
+  {{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
+  {{bs-button defaultText="Cancel" type="secondary" onClick=(action 'cancel')}}
+{{/bs-form}}
+
+{{outlet}}

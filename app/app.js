@@ -1,3 +1,4 @@
+// app/app.js
 import Application from '@ember/application';
 import Resolver from './resolver';
 import loadInitializers from 'ember-load-initializers';
