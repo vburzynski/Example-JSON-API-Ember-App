@@ -1,5 +1,6 @@
 {{!-- app/templates/users/index.hbs --}}
 <h1>Users</h1>
+{{!-- Add Navigation to the New User route --}}
 {{#bs-nav type="pills" as |nav|}}
   {{#nav.item}}{{#nav.link-to "users.new"}}New{{/nav.link-to}}{{/nav.item}}
 {{/bs-nav}}
@@ -7,6 +8,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
+        {{!-- Add an Actions column--}}
         <th>Actions</th>
         <th>ID</th>
         <th>Username</th>
@@ -17,10 +19,12 @@
     <tbody>
       {{#each model as |user|}}
         <tr>
+          {{!-- Add Navigation to the Show and Edit routes --}}
           <td>
             {{#link-to 'users.show' user.id}}Show{{/link-to}}&nbsp;
             {{#link-to 'users.edit' user.id}}Edit{{/link-to}}
           </td>
+          {{!-- wrap the user's data in a link to the Show route --}}
           <td>{{#link-to 'users.show' user.id}}{{user.id}}{{/link-to}}</td>
           <td>{{#link-to 'users.show' user.id}}{{user.username}}{{/link-to}}</td>
           <td>{{#link-to 'users.show' user.id}}{{user.firstName}}{{/link-to}}</td>
