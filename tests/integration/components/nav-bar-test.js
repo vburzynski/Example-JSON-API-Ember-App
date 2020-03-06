@@ -12,15 +12,6 @@ module('Integration | Component | nav-bar', function(hooks) {
 
     await render(hbs`<NavBar />`);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <NavBar>
-        template block text
-      </NavBar>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.ok(this.element);
   });
 });
