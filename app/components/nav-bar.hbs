@@ -1,4 +1,3 @@
-{{!-- app/templates/components/nav-bar.hbs --}}
 {{#bs-navbar fluid=true as |navbar|}}
   <div class="navbar-header">
     {{navbar.toggle}}
@@ -8,7 +7,7 @@
     {{#navbar.nav as |nav|}}
       {{#nav.item}}{{#nav.link-to "index"}}Home{{/nav.link-to}}{{/nav.item}}
       {{#nav.item}}{{#nav.link-to "about"}}About{{/nav.link-to}}{{/nav.item}}
-      {{#nav.item}}{{#nav.link-to "users"}}Users{{/nav.link-to}}{{/nav.item}}
     {{/navbar.nav}}
   {{/navbar.content}}
 {{/bs-navbar}}
+{{yield}}

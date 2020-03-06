@@ -1,9 +1,8 @@
-{{!-- app/templates/users/index.hbs --}}
 <h1>Users</h1>
 {{!-- Add Navigation to the New User route --}}
-{{#bs-nav type="pills" as |nav|}}
-  {{#nav.item}}{{#nav.link-to "users.new"}}New{{/nav.link-to}}{{/nav.item}}
-{{/bs-nav}}
+<BsNav @type="pills" as |nav|>
+  <nav.item><nav.linkTo @route="users.new">New</nav.linkTo></nav.item>
+</BsNav>
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
@@ -17,18 +16,19 @@
       </tr>
     </thead>
     <tbody>
-      {{#each model as |user|}}
+      {{#each @model as |user|}}
         <tr>
           {{!-- Add Navigation to the Show and Edit routes --}}
           <td>
-            {{#link-to 'users.show' user.id}}Show{{/link-to}}&nbsp;
-            {{#link-to 'users.edit' user.id}}Edit{{/link-to}}
+            <LinkTo @route="users.show" @model={{user}}>Show</LinkTo>&nbsp;
+            <LinkTo @route="users.edit" @model={{user}}>Edit</LinkTo>
+
           </td>
           {{!-- wrap the user's data in a link to the Show route --}}
-          <td>{{#link-to 'users.show' user.id}}{{user.id}}{{/link-to}}</td>
-          <td>{{#link-to 'users.show' user.id}}{{user.username}}{{/link-to}}</td>
-          <td>{{#link-to 'users.show' user.id}}{{user.firstName}}{{/link-to}}</td>
-          <td>{{#link-to 'users.show' user.id}}{{user.lastName}}{{/link-to}}</td>
+          <td><LinkTo @route="users.show" @model={{user}}>{{user.id}}</LinkTo></td>
+          <td><LinkTo @route="users.show" @model={{user}}>{{user.username}}</LinkTo></td>
+          <td><LinkTo @route="users.show" @model={{user}}>{{user.firstName}}</LinkTo></td>
+          <td><LinkTo @route="users.show" @model={{user}}>{{user.lastName}}</LinkTo></td>
         </tr>
       {{/each}}
     </tbody>

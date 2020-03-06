@@ -1,8 +1,7 @@
-// app/models/user.js
-import DS from 'ember-data';
+import Model, { attr } from '@ember-data/model';
 
-export default DS.Model.extend({
-  username: DS.attr('string'),
-  firstName: DS.attr('string'),
-  lastName: DS.attr('string')
-});
+export default class UserModel extends Model {
+  @attr('string') username;
+  @attr('string') firstName;
+  @attr('string') lastName;
+}
