@@ -1,19 +1,23 @@
-import { expect } from 'chai';
-import { describe, it } from 'mocha';
-import { setupModelTest } from 'ember-mocha';
+import { module, test } from 'qunit';
+import { setupTest } from 'ember-qunit';
 
-describe('Unit | Serializer | application', function() {
-  setupModelTest('application', {
-    // Specify the other units that are required for this test.
-    needs: ['serializer:application']
-  });
+module('Unit | Serializer | application', function(hooks) {
+  setupTest(hooks);
 
   // Replace this with your real tests.
-  it('serializes records', function() {
-    let record = this.subject();
+  test('it exists', function(assert) {
+    let store = this.owner.lookup('service:store');
+    let serializer = store.serializerFor('application');
+
+    assert.ok(serializer);
+  });
+
+  test('it serializes records', function(assert) {
+    let store = this.owner.lookup('service:store');
+    let record = store.createRecord('user', {});
 
     let serializedRecord = record.serialize();
 
-    expect(serializedRecord).to.be.ok;
+    assert.ok(serializedRecord);
   });
 });

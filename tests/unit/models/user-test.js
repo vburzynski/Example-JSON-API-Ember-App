@@ -1,17 +1,13 @@
-import { expect } from 'chai';
-import { describe, it } from 'mocha';
-import { setupModelTest } from 'ember-mocha';
+import { module, test } from 'qunit';
+import { setupTest } from 'ember-qunit';
 
-describe('Unit | Model | user', function() {
-  setupModelTest('user', {
-    // Specify the other units that are required for this test.
-      needs: []
-  });
+module('Unit | Model | user', function(hooks) {
+  setupTest(hooks);
 
   // Replace this with your real tests.
-  it('exists', function() {
-    let model = this.subject();
-    // var store = this.store();
-    expect(model).to.be.ok;
+  test('it exists', function(assert) {
+    let store = this.owner.lookup('service:store');
+    let model = store.createRecord('user', {});
+    assert.ok(model);
   });
 });

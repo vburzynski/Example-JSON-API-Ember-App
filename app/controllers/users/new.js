@@ -1,13 +1,14 @@
-// app/controllers/users/new.js
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
 
-export default Controller.extend({
-  actions: {
-    cancel: function() {
-      this.get('target').send('cancel');
-    },
-    saveUser: function(user) {
-      this.get('target').send('saveUser', user);
-    }
+export default class UsersNewController extends Controller {
+  @action
+  cancel() {
+    this.get('target').send('cancel');
   }
-});
+
+  @action
+  saveUser(user) {
+    this.get('target').send('saveUser', user);
+  }
+}

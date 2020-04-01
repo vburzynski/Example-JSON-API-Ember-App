@@ -1,24 +1,17 @@
-import { expect } from 'chai';
-import { describe, it } from 'mocha';
-import { setupComponentTest } from 'ember-mocha';
-import hbs from 'htmlbars-inline-precompile';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
+import { hbs } from 'ember-cli-htmlbars';
 
-describe('Integration | Component | nav bar', function() {
-  setupComponentTest('nav-bar', {
-    integration: true
-  });
+module('Integration | Component | nav-bar', function(hooks) {
+  setupRenderingTest(hooks);
 
-  it('renders', function() {
+  test('it renders', async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.on('myAction', function(val) { ... });
-    // Template block usage:
-    // this.render(hbs`
-    //   {{#nav-bar}}
-    //     template content
-    //   {{/nav-bar}}
-    // `);
+    // Handle any actions with this.set('myAction', function(val) { ... });
 
-    this.render(hbs`{{nav-bar}}`);
-    expect(this.$()).to.have.length(1);
+    await render(hbs`<NavBar />`);
+
+    assert.ok(this.element);
   });
 });

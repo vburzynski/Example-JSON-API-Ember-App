@@ -1,3 +1,4 @@
-// app/routes/users/index.js
-import UsersController from '../users';
-export default UsersController;
+import Route from '@ember/routing/route';
+
+export default class UsersIndexRoute extends Route {
+}

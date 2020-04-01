@@ -1,7 +1,6 @@
-{{!-- app/templates/users/show.hbs --}}
-<h1>{{model.firstName}} {{model.lastName}}</h1>
-<p><b>Username:</b> {{model.username}}</p>
-{{#bs-nav type="pills" as |nav|}}
-  {{#nav.item}}{{#nav.link-to "users"}}Users{{/nav.link-to}}{{/nav.item}}
-{{/bs-nav}}
+<h1>{{this.model.firstName}} {{this.model.lastName}}</h1>
+<p><b>Username:</b> {{this.model.username}}</p>
+<BsNav @type="pills" as |nav|>
+  <nav.item><nav.linkTo @route="users">Users</nav.linkTo></nav.item>
+</BsNav>
 {{outlet}}

@@ -1,12 +1,11 @@
-{{!-- app/templates/users/edit.hbs --}}
 <h1>Edit User</h1>
 
-{{#bs-form formLayout="horizontal" model=model onSubmit=(action 'saveUser' model) as |form|}}
-  {{form.element controlType="email" label="Email" placeholder="Email" property="username"}}
-  {{form.element controlType="text" label="First Name" placeholder="first" property="firstName"}}
-  {{form.element controlType="text" label="Last Name" placeholder="last" property="lastName"}}
-  {{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
-  {{bs-button defaultText="Cancel" type="secondary" onClick=(action 'cancel')}}
-{{/bs-form}}
+<BsForm @model={{this.model}} {{on "submit" (fn this.saveUser this.model)}} as |form|>
+  <form.element @controlType="email" @label="Email" placeholder="Email" @property="username" />
+  <form.element @controlType="text" @label="First Name" placeholder="first" @property="firstName" />
+  <form.element @controlType="text" @label="Last Name" placeholder="last" @property="lastName" />
+  <BsButton @type="primary" @defaultText="Submit" type="submit" />
+  <BsButton @type="secondary" @defaultText="Cancel" {{on "click" this.cancel}} />
+</BsForm>
 
 {{outlet}}
